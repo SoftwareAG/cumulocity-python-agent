@@ -1,0 +1,16 @@
+{
+"name": "Gateway",
+"com_cumulocity_model_Agent": {},
+    "c8y_IsDevice": {},
+    "c8y_Configuration": {
+        "config": "c8y.operations.check.interval=5;\nc8y.device.status.update=10;\nc8y.logging.level=DEBUG;"
+    },
+    "c8y_SupportedOperations": [
+        "c8y_Restart",
+        "c8y_Software",
+        "c8y_Configuration",
+        "c8y_Command",
+        "c8y_Firmware",
+        "c8y_RemoteAccessConnect"
+    ]
+}
