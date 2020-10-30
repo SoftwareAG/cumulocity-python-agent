@@ -82,13 +82,18 @@ The device registration is implemented and documented here:
 
 After the registration process it is checked whether an managed object with particular identity is already available. If not a new device is created. The layout of the device can be changed in device.txt in the config directory.
 
-### deviceStatus
 
 ### Remote Access
 
+To provide the best level of control, remote devices should be represented as devices in the Device Management of Cumulocity IoT, with the corresponding reporting, remote control and real-time functionality.
+
+In some cases however, it is not possible or not economic to implement every aspect of a machine or remote device in a Cumulocity IoT agent. For example, it might be a legacy device that does not have APIs for accessing certain parts of the functionality, or it may have many very low-level configuration parameters that would be very involved to map to Cumulocity IoT.
+
+In this case, you can use Cloud Remote Access to securely manage remote devices. The benefit is that you manage the device in the same way as if you had it physically close to you.
+
+See the repository of S.Witschel here on how its implemented technically:
+
 [Remote Access](https://github.com/SoftwareAG/cumulocity-remote-access-agent)
 
-### utils
+For achieving a connection via SSH or VNC simple configure the connection where the device of the agent is the jump host. Meaning you can reach every ssh endpoint or VNC server from there could be used within the platform.
 
-
-### deviceStatus
