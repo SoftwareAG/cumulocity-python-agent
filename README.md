@@ -21,7 +21,7 @@ Contact us at [TECHcommunity](mailto:technologycommunity@softwareag.com?subject=
 ## Getting Started
 
 Getting stated is much easier on linux than on windows. For developement we used a Cent OS system but this bascially works on any machine that can run python.
-
+Install Python 2 or Python3 if not already installed. This module has been tested with Python3.
 
 ### Start
 
@@ -62,7 +62,7 @@ Debugger is set to Info in every module, this makes debugging a lot easier. Chan
 
 ### API
 
-Required and most commonly used RestAPI calls are modulized inside here. The naming of the modules is mainly derived from its API path such as e.g. alarm, event, measurement or Inventory. The authentification module is initialized at the very beginning of every module an uses the 'credentials.key' file in the config directory. If not available the device Registration starts. If the credentials are not valid they will be deleted. Every API module has its own logger.
+Required and most commonly used RestAPI calls are modulized inside here. The naming of the modules is mainly derived from its API path such as e.g. alarm, event, measurement or Inventory. The authentification module is initialized at the very beginning of every module and uses the 'credentials.key' file in the config directory. If not available the device Registration starts. If the credentials are not valid they will be deleted. Every API module has its own logger.
 
 ### deviceControl
 
@@ -72,7 +72,7 @@ There are two main modules:
 1. operationsWatcher -> Watches for operations on the particualar device and hands them over to the handler
 2. operationsHandler -> Handles the logic of the operations and hands them over to dedicated modules
 
-Dedicated modules in this context are e.g. the update of configuration with updating the managed object or the exchange of files on the local machine for e.g. epl files. Others can be added for later use-cases.
+Dedicated modules in this context are e.g. the update of configuration with updating the managed object or starts the remote access process from device. Others can be added for later use-cases.
 
 ### deviceRegistration
 
@@ -81,7 +81,6 @@ The device registration is implemented and documented here:
 [Device Registration using Rest](https://cumulocity.com/guides/device-sdk/rest/)
 
 After the registration process it is checked whether an managed object with particular identity is already available. If not a new device is created. The layout of the device can be changed in device.txt in the config directory.
-
 
 ### Remote Access
 
