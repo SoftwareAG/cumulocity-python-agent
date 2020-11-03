@@ -1,5 +1,4 @@
 {
-"name": "Gateway",
 "com_cumulocity_model_Agent": {},
     "c8y_IsDevice": {},
     "c8y_Configuration": {

@@ -49,7 +49,9 @@ def createEdgeDevice(externalID):
     url = "https://%s/inventory/managedObjects"%(auth.get().tenant)
     with open('./config/device.txt') as f:
         payload = f.read()
-    response = requests.request("POST", url, headers=auth.get().headers, data = payload)
+    payload = json.loads(payload)
+    payload['name'] = str(externalID)
+    response = requests.request("POST", url, headers=auth.get().headers, data = json.dumps(payload))
     logger.debug('Requesting the following url: ' + str(url))
     logger.debug('Response from request: ' + str(response.text))
     logger.debug('Response from request with code : ' + str(response.status_code))

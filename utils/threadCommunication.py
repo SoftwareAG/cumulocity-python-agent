@@ -1,7 +1,6 @@
 import jsonify
 import sys
 import csv
-import pandas
 import logging
 import requests
 from os import path

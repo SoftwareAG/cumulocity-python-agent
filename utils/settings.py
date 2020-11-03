@@ -4,6 +4,7 @@ import logging
 import os
 import API.inventory
 import API.authentication as auth
+import subprocess
 
 logger = logging.getLogger('Settings')
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -18,7 +19,7 @@ def basics():
     basics['registrationUser'] = configInit['Registration']['user']
     basics['registrationPassword'] = configInit['Registration']['password']
     basics['registrationTenant'] = configInit['Registration']['tenant']
-    basics['deviceID'] = configInit['Device']['id']
+    basics['deviceID'] = subprocess.Popen(["cat", "/etc/hostname"],stdout=subprocess.PIPE).stdout.read().decode('utf-8').replace('\n','')
     basics['tenantPostFix'] = configInit['Registration']['tenantPostFix']
     return basics
 
