@@ -50,7 +50,7 @@ def createEdgeDevice(externalID):
     with open('./config/device.txt') as f:
         payload = f.read()
     payload = json.loads(payload)
-    payload['name'] = str(externalID)
+    payload['name'] = "Gateway_%s"%(externalID)
     response = requests.request("POST", url, headers=auth.get().headers, data = json.dumps(payload))
     logger.debug('Requesting the following url: ' + str(url))
     logger.debug('Response from request: ' + str(response.text))
