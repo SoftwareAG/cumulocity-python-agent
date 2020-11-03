@@ -37,6 +37,18 @@ After that you can run the script via:
 python run.py
 ```
 
+Docker is also available. So basically
+
+```shell
+docker build .
+```
+
+or use the start.sh script together with the numbers of instances you want to use
+
+```shell
+. start.sh 5
+```
+
 ### Device Registration
 
 On Cumulocity side you have to register the device in your tenant. In the config.ini you have to use an identifier such as the serial number or mac address.
@@ -95,4 +107,3 @@ See the repository of S.Witschel here on how its implemented technically:
 [Remote Access](https://github.com/SoftwareAG/cumulocity-remote-access-agent)
 
 For achieving a connection via SSH or VNC simple configure the connection where the device of the agent is the jump host. Meaning you can reach every ssh endpoint or VNC server from there could be used within the platform.
-
