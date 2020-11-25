@@ -22,6 +22,7 @@ def basics():
     try:
         basics['deviceID'] = subprocess.Popen(["cat", "/etc/hostname"],stdout=subprocess.PIPE).stdout.read().decode('utf-8').replace('\n','')
     except:
+        logger.warning('Could not get hostname, using backup device ID')
         basics['deviceID'] = "Backup_0815"
     basics['tenantPostFix'] = configInit['Registration']['tenantPostFix']
     return basics
