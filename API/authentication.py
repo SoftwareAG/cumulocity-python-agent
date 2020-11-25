@@ -24,6 +24,8 @@ class __Authentication(object):
             self.basicSettings = utils.settings.basics()
             self.tenantInstance = self.basicSettings['tenantInstance']
             self.tenant = self.tenantID + "." + self.tenantInstance
+            self.MqttUser = self.tenantID + "/" + self.__c8yUser
+            self.MqttPwd = self.__c8yPassword
             self.payload = {}
             self.headers = {"Authorization": "Basic {}".format(b64encode(bytes(self.tenantID + "/" + f"{self.__c8yUser}:{self.__c8yPassword}", "utf-8")).decode("ascii")), 'Content-Type': 'application/json','Accept': 'application/json'}
     instance = None

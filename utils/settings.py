@@ -19,7 +19,10 @@ def basics():
     basics['registrationUser'] = configInit['Registration']['user']
     basics['registrationPassword'] = configInit['Registration']['password']
     basics['registrationTenant'] = configInit['Registration']['tenant']
-    basics['deviceID'] = subprocess.Popen(["cat", "/etc/hostname"],stdout=subprocess.PIPE).stdout.read().decode('utf-8').replace('\n','')
+    try:
+        basics['deviceID'] = subprocess.Popen(["cat", "/etc/hostname"],stdout=subprocess.PIPE).stdout.read().decode('utf-8').replace('\n','')
+    except:
+        basics['deviceID'] = "Backup_0815"
     basics['tenantPostFix'] = configInit['Registration']['tenantPostFix']
     return basics
 
@@ -41,11 +44,15 @@ def credentials():
         print("No file")
 
 def device():
-    device = {}
-    managedDeviceObject = API.inventory.getSpezificManagedObject(auth.get().internalID)['c8y_Configuration']['config'].replace('\n','').split(';')
-    for counter, value in enumerate(managedDeviceObject):
-        if len(value) > 0:
-            device[str(value.split('=')[0])] = value.split('=')[1]
-        else:
-            pass
-    return device
+    device ={}
+    try:
+        managedDeviceObject = API.inventory.getSpezificManagedObject(auth.get().internalID)['c8y_Configuration']['config'].replace('\n','').split(';')
+        for counter, value in enumerate(managedDeviceObject):
+            if len(value) > 0:
+                device[str(value.split('=')[0])] = value.split('=')[1]
+            else:
+                pass
+        return device
+    except Exception as e:
+        logger.error('The following error occured: %s'% (str(e)))
+        return device
