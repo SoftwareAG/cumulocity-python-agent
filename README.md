@@ -81,7 +81,7 @@ Required and most commonly used RestAPI calls are modulized inside here. The nam
 Device control handles everything around operations handling from the platform to the device.
 There are two main modules:
 
-1. operationsWatcher -> Watches for operations on the particualar device and hands them over to the handler
+1. operationsListener -> Watches for operations on the particualar device via MQTT and triggers the handler
 2. operationsHandler -> Handles the logic of the operations and hands them over to dedicated modules
 
 Dedicated modules in this context are e.g. the update of configuration with updating the managed object or starts the remote access process from device. Others can be added for later use-cases.
